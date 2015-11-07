@@ -21,6 +21,8 @@
   },
   "dependencies": {
     "react": "^0.14.2",
-    "react-dom": "^0.14.2"
+    "react-dom": "^0.14.2",
+    "redux": "^3.0.4",
+    "redux-thunk": "^1.0.0"
   }
 }
