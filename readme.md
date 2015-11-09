@@ -1,4 +1,4 @@
-# redux-react-boilerplate
+# boilerplate-redux-react
 
 This is my personal redux + react boilerplate.
 
