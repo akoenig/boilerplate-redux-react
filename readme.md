@@ -36,4 +36,4 @@ Enjoy.
 
 ## Author
 
-© 2015, [André König](mailto:andre.koenig@posteo.de)
+MIT © 2015, [André König](mailto:andre.koenig@posteo.de)
