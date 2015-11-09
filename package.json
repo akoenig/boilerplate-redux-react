@@ -1,7 +1,7 @@
 {
   "name": "@akoenig/boilerplate-redux-react",
   "version": "1.0.0",
-  "description": "My personal redux-react boilerplate",
+  "description": "My personal redux + react boilerplate",
   "scripts": {
     "start": "node webpack.server",
     "build": "webpack",
