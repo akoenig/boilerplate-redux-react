@@ -34,9 +34,7 @@ module.exports = {
     module: {
         preLoaders: [{
             test: /\.js$/,
-            loader: `xo-loader?{
-                envs: ["browser"]
-            }`,
+            loader: 'eslint-loader',
             exclude: /node_modules/
         }],
         loaders: [{
