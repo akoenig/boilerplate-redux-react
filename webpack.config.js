@@ -32,8 +32,15 @@ module.exports = {
     ],
 
     module: {
+        preLoaders: [{
+            test: /\.js$/,
+            loader: `xo-loader?{
+                envs: ["browser"]
+            }`,
+            exclude: /node_modules/
+        }],
         loaders: [{
-            test: /.js$/,
+            test: /\.js$/,
             loaders: [
                 'react-hot',
                 'babel?stage=0'
