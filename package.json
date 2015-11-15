@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "My personal redux + react boilerplate",
   "scripts": {
-    "start": "node webpack.server",
+    "dev": "node webpack.server",
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
