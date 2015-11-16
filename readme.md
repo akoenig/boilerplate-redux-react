@@ -28,7 +28,7 @@ This boilerplate utilizes webpack for establishing a smooth development workflow
 npm run dev
 ```
 
-That's all. It will start a development HTTP server on-the-fly. Just fire up your web browser and point it to `http://localhost:3000`. Browse the codebase, which you find in the `lib/` directory btw., make some changes and enjoy the hot module capabilities of the `react-hot-loader`.
+That's all. It will start a development HTTP server on-the-fly. Just fire up your web browser and point it to `http://localhost:8080`. Browse the codebase, which you find in the `lib/` directory btw., make some changes and enjoy the hot module capabilities of the `react-hot-loader`.
 
 If you have any questions or suggestions, drop me an [issue](https://github.com/akoenig/boilerplate-redux-react/issues/new).
 
