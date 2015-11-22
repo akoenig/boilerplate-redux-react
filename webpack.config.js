@@ -1,5 +1,5 @@
 /*
- * redux-react-boilerplate
+ * boilerplate-redux-react
  *
  * Copyright(c) 2015 André König <andre.koenig@posteo.de>
  * MIT Licensed
@@ -17,18 +17,28 @@ const webpack = require('webpack');
 
 module.exports = {
     entry: [
-        'webpack-dev-server/client?http://localhost:3000',
-        'webpack/hot/only-dev-server',
+		'koa-webpack-hot-middleware/node_modules/webpack-hot-middleware/client',
         './lib/index'
     ],
+
     output: {
         path: path.join(__dirname, 'build'),
         filename: 'app.js',
-        publicPath: '/static/'
+        publicPath: '/'
     },
 
+	resolve: {
+		extensions: ['', '.jsx', '.scss', '.js', '.json'],
+		modulesDirectories: [
+			'node_modules',
+			path.resolve(__dirname, './node_modules')
+		]
+	},
+
     plugins: [
-        new webpack.HotModuleReplacementPlugin()
+		new webpack.optimize.OccurenceOrderPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
+		new webpack.NoErrorsPlugin()
     ],
 
     module: {
@@ -38,12 +48,13 @@ module.exports = {
             exclude: /node_modules/
         }],
         loaders: [{
-            test: /\.js$/,
-            loaders: [
-                'react-hot',
-                'babel?stage=0'
-            ],
-            exclude: /node_modules/
-        }]
+			test: /(\.js|\.jsx)$/,
+			exclude: /(node_modules)/,
+			loader: 'babel',
+			query: {
+				presets: ['es2015','react'],
+				plugins: ['transform-object-rest-spread']
+			}
+		}]
     }
 };
