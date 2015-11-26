@@ -12,36 +12,21 @@
  */
 
 const PORT = process.env.PORT || 8080;
-const HOST = process.env.HOST || '0.0.0.0';
-
-const path = require('path');
-
-const koa = require('koa');
-const sendfile = require('koa-sendfile');
-const config = require('./webpack.config');
-const compiler = require('webpack')(config);
+const HOST = process.env.HOST || 'localhost';
 
 const pkg = require('./package.json');
+const webpack = require('webpack');
+const WebpackDevServer = require('webpack-dev-server');
+const config = require('./webpack.config');
 
-const app = koa();
-
-app.use(require('koa-webpack-dev-middleware')(compiler, {
+new WebpackDevServer(webpack(config), {
 	publicPath: config.output.publicPath,
-	stats: {
-		colors: true
-	}
-}));
-
-app.use(require('koa-webpack-hot-middleware')(compiler));
-
-app.use(function* (next) {
-	const stats = yield* sendfile.call(this, path.join(__dirname, 'index.html'));
-});
-
-app.listen(PORT, HOST, (err) => {
+	hot: true,
+	historyApiFallback: true
+}).listen(PORT, HOST, (err, result) => {
 	if (err) {
- 	return console.log(err);
-	}
+		return console.log(err);
+  	}
 
 	console.log(`=> "${pkg.name}" is listening at http://${HOST}:${PORT}`);
 	console.log('=> Starting compile process ...');

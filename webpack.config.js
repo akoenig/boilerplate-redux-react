@@ -13,11 +13,15 @@
 
 const path = require('path');
 
+const PORT = process.env.PORT || 8080;
+const HOST = process.env.HOST || 'localhost';
+
 const webpack = require('webpack');
 
 module.exports = {
     entry: [
-		'koa-webpack-hot-middleware/node_modules/webpack-hot-middleware/client',
+		`webpack-dev-server/client?http://${HOST}:${PORT}`,
+		'webpack/hot/only-dev-server',
         './lib/index'
     ],
 
@@ -49,11 +53,16 @@ module.exports = {
         loaders: [{
 			test: /\.js$/,
 			exclude: /(node_modules)/,
+			loader: 'react-hot'
+		},
+		{
+			test: /\.js$/,
+			exclude: /(node_modules)/,
 			loader: 'babel',
 			query: {
 				presets: ['es2015','react'],
 				plugins: ['transform-object-rest-spread']
-			}
+			},
 		}]
     }
 };
