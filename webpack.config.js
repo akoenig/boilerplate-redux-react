@@ -37,8 +37,7 @@ module.exports = {
 
     plugins: [
 		new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
-		new webpack.NoErrorsPlugin()
+        new webpack.HotModuleReplacementPlugin()
     ],
 
     module: {
@@ -48,7 +47,7 @@ module.exports = {
             exclude: /node_modules/
         }],
         loaders: [{
-			test: /(\.js|\.jsx)$/,
+			test: /\.js$/,
 			exclude: /(node_modules)/,
 			loader: 'babel',
 			query: {
